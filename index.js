@@ -20,12 +20,16 @@ function printBanner() {
     console.log('');
 }
 
-// Lazy-load canvas module
+// Lazy-load canvas module and polyfill Node.js globals
 let _canvas = null;
 function getCanvas() {
     if (_canvas) return _canvas;
     try {
         _canvas = require('canvas');
+        // Polyfill ImageData for Node.js (not available globally)
+        if (typeof globalThis.ImageData === 'undefined' && _canvas.ImageData) {
+            globalThis.ImageData = _canvas.ImageData;
+        }
     } catch (e) {
         throw new Error(
             'RemoveBanana requires "canvas" package for Node.js usage.\n' +
