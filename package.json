@@ -1,0 +1,55 @@
+{
+    "name": "removebanana",
+    "version": "1.0.0",
+    "description": "Remove invisible AI watermarks (SynthID) from Google Gemini, Imagen 2, Imagen 3, and Nano Banana generated images using reverse alpha blending mathematics.",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "core/",
+        "assets/",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "test": "node test.js"
+    },
+    "keywords": [
+        "watermark",
+        "watermark-remover",
+        "gemini",
+        "google-gemini",
+        "imagen",
+        "synthid",
+        "ai-watermark",
+        "image-processing",
+        "alpha-blending",
+        "watermark-removal",
+        "nano-banana",
+        "removebanana",
+        "ai",
+        "image-editing"
+    ],
+    "homepage": "https://removebanana.eu.cc",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/removebanana/removebanana"
+    },
+    "bugs": {
+        "url": "https://github.com/removebanana/removebanana/issues"
+    },
+    "author": "RemoveBanana <removebanana.pvt@gmail.com>",
+    "license": "MIT",
+    "peerDependencies": {
+        "canvas": ">=2.0.0"
+    },
+    "peerDependenciesMeta": {
+        "canvas": {
+            "optional": true
+        }
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    }
+}
